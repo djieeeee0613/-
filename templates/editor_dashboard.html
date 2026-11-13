@@ -1,0 +1,54 @@
+<div class="page-header">
+  <div>
+    <h1 class="page-title">🔍 管理員 / 編輯專區 — 稿件審查工作台</h1>
+    <p class="page-subtitle">查看待審查清單 (作者、類別、標題)、查看稿件內容、選擇通過或退回稿件</p>
+  </div>
+  <div>
+    <a href="/editor?tab={{current_tab}}" class="btn btn-outline">🔄 刷新清單狀態</a>
+  </div>
+</div>
+
+<div class="stats-grid">
+  <div class="stat-card" style="border-left: 4px solid var(--warning);">
+    <span class="stat-label">⏳ 待審查稿件 (審查中)</span>
+    <span class="stat-value" style="color: var(--warning);">{{count_pending}}</span>
+  </div>
+  <div class="stat-card" style="border-left: 4px solid var(--success);">
+    <span class="stat-label">✅ 已審查通過</span>
+    <span class="stat-value" style="color: var(--success);">{{count_approved}}</span>
+  </div>
+  <div class="stat-card" style="border-left: 4px solid #64748b;">
+    <span class="stat-label">✏️ 退回/草稿中 (編輯中)</span>
+    <span class="stat-value" style="color: #64748b;">{{count_draft}}</span>
+  </div>
+</div>
+
+<div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+  <a href="/editor?tab=pending" class="btn {{tab_pending_cls}}">
+    📥 待審查清單 ({{count_pending}})
+  </a>
+  <a href="/editor?tab=all" class="btn {{tab_all_cls}}">
+    📑 全部稿件紀錄 ({{count_total}})
+  </a>
+</div>
+
+<div class="card" style="padding: 0;">
+  <div class="table-responsive">
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 80px;">編號</th>
+          <th style="width: 150px;">作者</th>
+          <th style="width: 140px;">類別</th>
+          <th>標題</th>
+          <th style="width: 130px; text-align: center;">審查狀態</th>
+          <th style="width: 170px;">送出/更新時間</th>
+          <th style="width: 180px; text-align: right;">審查操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{table_rows}}
+      </tbody>
+    </table>
+  </div>
+</div>

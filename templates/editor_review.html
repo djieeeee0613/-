@@ -1,0 +1,41 @@
+<div class="page-header">
+  <div>
+    <a href="/editor" class="btn btn-sm btn-outline" style="margin-bottom: 0.5rem;">&larr; 返回待審查清單</a>
+    <h1 class="page-title">審閱稿件內容 (管理員/編輯)</h1>
+  </div>
+  <div>
+    <a href="/editor/review?id={{id}}" class="btn btn-outline">🔄 刷新狀態</a>
+  </div>
+</div>
+
+<div class="card" style="max-width: 900px; margin: 0 auto 1.5rem auto;">
+  <div class="article-header">
+    <div style="margin-bottom: 0.6rem; display: flex; align-items: center; justify-content: space-between;">
+      <div>
+        <span class="badge-cat" style="font-size: 0.9rem; padding: 0.3rem 0.7rem;">{{category}}</span>
+        {{status_badge}}
+      </div>
+      <span style="font-size: 0.85rem; color: var(--secondary);">稿件編號 #{{id}}</span>
+    </div>
+
+    <h2 class="article-title">{{title}}</h2>
+
+    <div class="article-meta">
+      <span>👤 <b>作者：</b>{{author_name}}</span>
+      <span>📅 <b>建立時間：</b>{{created_at}}</span>
+      <span>🔄 <b>更新時間：</b>{{updated_at}}</span>
+    </div>
+  </div>
+
+  <div style="font-weight: 600; margin-bottom: 0.5rem; color: var(--gray-700);">📖 文章完整內容：</div>
+  <div class="article-body">{{content}}</div>
+
+  {{review_comment_block}}
+</div>
+
+<div class="card" style="max-width: 900px; margin: 0 auto; background: #fafafa; border: 2px solid var(--gray-200);">
+  <h3 style="margin-bottom: 0.75rem; font-size: 1.2rem; display: flex; align-items: center; gap: 0.5rem;">
+    ⚖️ 編輯審查決策面板
+  </h3>
+  {{decision_block}}
+</div>

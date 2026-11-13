@@ -1,0 +1,31 @@
+<div class="page-header">
+  <div>
+    <a href="/author" class="btn btn-sm btn-outline" style="margin-bottom: 0.5rem;">&larr; 返回作者稿件清單</a>
+    <h1 class="page-title">稿件詳細內容 (作者檢視)</h1>
+  </div>
+  <div style="display: flex; gap: 0.5rem;">
+    <a href="/author/view?id={{id}}" class="btn btn-outline">🔄 刷新狀態</a>
+    {{action_buttons}}
+  </div>
+</div>
+
+<div class="card" style="max-width: 900px; margin: 0 auto;">
+  <div class="article-header">
+    <div style="margin-bottom: 0.6rem;">
+      <span class="badge-cat" style="font-size: 0.9rem; padding: 0.3rem 0.7rem;">{{category}}</span>
+      {{status_badge}}
+    </div>
+
+    <h2 class="article-title">{{title}}</h2>
+
+    <div class="article-meta">
+      <span>👤 作者：{{author_name}}</span>
+      <span>📅 建立時間：{{created_at}}</span>
+      <span>🔄 更新時間：{{updated_at}}</span>
+    </div>
+
+    {{review_comment_block}}
+  </div>
+
+  <div class="article-body">{{content}}</div>
+</div>

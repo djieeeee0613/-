@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{page_title}} - 投稿審查系統</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header class="navbar {{nav_role_class}}">
+  <div class="nav-container">
+    <a href="/" class="brand">
+      <span class="brand-icon">📝</span>
+      <span>投稿審查系統</span>
+    </a>
+    {{nav_user_block}}
+  </div>
+</header>
+
+<main class="container">
+  {{flash_block}}
+  {{content_block}}
+</main>
+
+<footer class="footer">
+  <p>© 投稿審查系統 (Submission Review System) — 支援多分頁獨立角色同步操作</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<div class="page-header">
+  <div>
+    <h1 class="page-title">{{form_heading}}</h1>
+    <p class="page-subtitle">填寫稿件之類別、標題及文章內容 (狀態：編輯中)</p>
+  </div>
+  <div>
+    <a href="/author" class="btn btn-outline">&larr; 返回作者稿件清單</a>
+  </div>
+</div>
+
+<div class="card" style="max-width: 850px; margin: 0 auto;">
+  <form method="POST" action="{{form_action}}">
+    <div class="form-group">
+      <label class="form-label" for="author_name">作者姓名 <span style="color:var(--danger)">*</span></label>
+      <input type="text" name="author_name" id="author_name" class="form-control" value="{{author_name}}" placeholder="請輸入作者名稱" required>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="category">稿件類別 <span style="color:var(--danger)">*</span></label>
+      <select name="category" id="category" class="form-control" required>
+        {{category_options}}
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="title">稿件標題 <span style="color:var(--danger)">*</span></label>
+      <input type="text" name="title" id="title" class="form-control" value="{{title}}" placeholder="請輸入文章標題 (例如：《山城雨霧隨筆》)" required>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="content">文章內容 <span style="color:var(--danger)">*</span></label>
+      <textarea name="content" id="content" class="form-control" placeholder="請在此輸入完整的投稿內文..." required>{{content}}</textarea>
+    </div>
+
+    <div style="display: flex; gap: 0.75rem; justify-content: flex-end; margin-top: 1.5rem; border-top: 1px solid var(--gray-200); padding-top: 1.25rem;">
+      <a href="/author" class="btn btn-outline">取消</a>
+      <button type="submit" name="submit_mode" value="draft" class="btn btn-outline" style="border-color: var(--primary); color: var(--primary);">
+        💾 儲存為草稿 (狀態：編輯中)
+      </button>
+      <button type="submit" name="submit_mode" value="submit" class="btn btn-primary">
+        🚀 儲存並直接送出審查 (編輯中 &rarr; 審查中)
+      </button>
+    </div>
+  </form>
+</div>
