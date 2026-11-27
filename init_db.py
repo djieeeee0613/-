@@ -98,7 +98,9 @@ def export_sql():
 
 def _to_sqlite(sql: str) -> str:
     """PostgreSQL 語法 -> SQLite 語法 (僅需轉換少數語法)"""
-    sql = sql.replace("SERIAL PRIMARY KEY", "INTEGER PRIMARY KEY AUTOINCREMENT").replace("TIMESTAMP", "DATETIME")
+    # 只轉 SERIAL；SQLite 本身認得 TIMESTAMP 與 CURRENT_TIMESTAMP。
+    # (舊版把 "TIMESTAMP" 全部換成 "DATETIME"，會把預設值 CURRENT_TIMESTAMP 也改成無效的 CURRENT_DATETIME)
+    sql = sql.replace("SERIAL PRIMARY KEY", "INTEGER PRIMARY KEY AUTOINCREMENT")
     return "\n".join(l for l in sql.splitlines() if not l.startswith(("SELECT setval", "SET ", "CREATE SCHEMA")))
 
 
